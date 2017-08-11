@@ -58,7 +58,10 @@ function getClickInfo(eventTarget){
 			}	
 		});
 		//remove null values
-		attrList = attrList.filter(attr => attr != null);
+		//attrList = attrList.filter(attr => attr != null);
+		attrList = attrList.filter(function(attr){
+			return attr != null;
+		});
 		//console.log(attrList);
 		return attrList.join(',');
 	})();
