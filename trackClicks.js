@@ -44,7 +44,7 @@ function getClickInfo(eventTarget){
 		'INPUT': ['value','className','id']
 	};
 
-	var clickTarget = Object.keys(elemList).includes(eventTarget.tagName) ? eventTarget : findParentNode(eventTarget, ['A','BUTTON']);
+	var clickTarget = !!~Object.keys(elemList).indexOf(eventTarget.tagName) ? eventTarget : findParentNode(eventTarget, ['A','BUTTON']);
 
 	if(!clickTarget){
 		return false;
@@ -79,7 +79,8 @@ function getClickInfo(eventTarget){
 function findParentNode(el,tag){
   var isArr = {
   	true: function(){
-    	return tag.includes(el.tagName)
+    	//return tag.includes(el.tagName)
+		return !!~tag.indexOf(el.tagName)
     },
     false: function(){
     	return el.tagName === tag
