@@ -36,7 +36,7 @@ function getClickInfo(eventTarget){
 
 	var clickType = ('ontouchstart' in document.documentElement) ? 'touchDevice' : 'mouseClick';
 	var lk = findAnchorLink(eventTarget);
-	var isLink = lk.href && lk.href != null && !lk.href.includes('#') ? true : false;
+	var isLink = lk.href && lk.href != null && !~lk.href.indexOf('#') ? true : false;
 	var elemList = {
 		'A': ['textContent','className','id','href'],
 		'BUTTON': ['textContent','className','id'],
